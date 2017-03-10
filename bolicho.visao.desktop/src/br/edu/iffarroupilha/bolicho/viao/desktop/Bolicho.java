@@ -58,7 +58,7 @@ public class Bolicho extends JFrame{
 		
 		// vincula as ações ao item cliente
 		cliente.addActionListener(e -> { // expressoes lambidas
-			JOptionPane.showMessageDialog(null, "Clicou no Cliente");
+			new FrmCliente( Bolicho.this);
 		} );
 		
 		// vincula as ações ao item produto
