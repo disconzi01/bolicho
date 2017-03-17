@@ -46,10 +46,7 @@ public class FrmCliente extends JFrame{
 		add(txtCPF);
 		add(lblNome);
 		add(txtNome);
-		add(btnGravar);
-		
-		
-		
+		add(btnGravar);		
 	}
 	
 }
