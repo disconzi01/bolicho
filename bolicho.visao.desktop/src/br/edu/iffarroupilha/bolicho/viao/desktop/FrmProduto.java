@@ -1,6 +1,5 @@
 package br.edu.iffarroupilha.bolicho.viao.desktop;
 import java.awt.FlowLayout;
-
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -38,8 +37,7 @@ public class FrmProduto extends JFrame{
 		
 		setLayout(new FlowLayout(FlowLayout.LEFT));
 		
-		// add em tela
-		
+		// add em tela		
 		add(lblDescricao);
 		add(txtDescricao);
 		add(lblPreco);
