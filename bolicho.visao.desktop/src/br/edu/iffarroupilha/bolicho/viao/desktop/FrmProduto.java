@@ -3,7 +3,13 @@ import java.awt.FlowLayout;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
+
+import bolicho.controle.ClienteControle;
+import bolicho.controle.ProdutoControle;
+import br.edu.iffarroupilha.bolicho.modelo.Cliente;
+import br.edu.iffarroupilha.bolicho.modelo.Produto;
 
 /**
  * <p>
@@ -36,6 +42,27 @@ public class FrmProduto extends JFrame{
 		JButton btnGravar = new JButton("Gravar");
 		
 		setLayout(new FlowLayout(FlowLayout.LEFT));
+		
+		btnGravar.addActionListener( e -> {
+			ProdutoControle controle = new ProdutoControle();
+			// pega os dados da tela
+			Produto p = new Produto();
+			p.setDescricao(txtDescricao.getText());
+			// converte para valor numerico
+			int preco = controle.converteDouble(txtPreco.getText() );
+			p.setPreco( preco );
+			// valida dados
+			String erro = controle.ValidarProduto(p);
+			if(erro == null){
+				// realiza a gravação
+				controle.gravar( p );
+				JOptionPane.showMessageDialog(null, "Gravado!");	
+			}else{
+				JOptionPane.showMessageDialog(null, erro, "Validação", JOptionPane.WARNING_MESSAGE);
+			}
+			
+		});
+		
 		
 		// add em tela		
 		add(lblDescricao);

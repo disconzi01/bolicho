@@ -6,7 +6,11 @@ import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
+
+import bolicho.controle.ClienteControle;
+import br.edu.iffarroupilha.bolicho.modelo.Cliente;
 
 /**
  * <p>
@@ -40,6 +44,26 @@ public class FrmCliente extends JFrame{
 		JButton btnGravar = new JButton("Gravar");
 		
 		setLayout( new FlowLayout(FlowLayout.LEFT));
+		
+		btnGravar.addActionListener( e -> {
+			ClienteControle controle = new ClienteControle();
+			// pega os dados da tela
+			Cliente c = new Cliente();
+			c.setNome(txtNome.getText());
+			// converte para valor numerico
+			int cpf = controle.converteInteiro(txtCPF.getText() );
+			c.setCpf( cpf );
+			// valida dados
+			String erro = controle.ValidarCliente(c);
+			if(erro == null){
+				// realiza a gravação
+				controle.gravar( c );
+				JOptionPane.showMessageDialog(null, "Gravado!");	
+			}else{
+				JOptionPane.showMessageDialog(null, erro, "Validação", JOptionPane.WARNING_MESSAGE);
+			}
+			
+		});
 		
 		// adiciona os componentes em tela		
 		add(lblCPF);

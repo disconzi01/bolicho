@@ -24,5 +24,39 @@ public class AControle {
 	public void excluir ( Object entidade){
 		
 	}
+	
+	/**
+	 * <p>
+	 * Converte um termo em numero, caso esteja no formato invalido retorna-se zero
+	 * </p>
+	 * @param termo
+	 * @return
+	 */
+	public int converteInteiro(String termo){
+		
+		try{
+			return Integer.parseInt(termo);	
+		}catch (Exception e) {
+			return 0;
+		}	
+		
+	}
+
+	/**
+	 * <p>
+	 * Converte um termo em double, caso esteja no formato invalido retorna-se zero
+	 * </p>
+	 * @param termo
+	 * @return
+	 */
+	public Double converteDouble(String termo){
+		
+		try{
+			return Double.parseDouble(termo);
+		}catch (Exception e) {
+			return (double) 0;
+		}	
+		
+	}
 
 }
