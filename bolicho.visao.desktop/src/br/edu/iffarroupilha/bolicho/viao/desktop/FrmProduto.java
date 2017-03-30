@@ -49,7 +49,7 @@ public class FrmProduto extends JFrame{
 			Produto p = new Produto();
 			p.setDescricao(txtDescricao.getText());
 			// converte para valor numerico
-			int preco = controle.converteDouble(txtPreco.getText() );
+			double preco = controle.converteDouble(txtPreco.getText() );
 			p.setPreco( preco );
 			// valida dados
 			String erro = controle.ValidarProduto(p);
